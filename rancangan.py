@@ -147,7 +147,7 @@ def create_word_export_bm(topic, syllabus, text):
 # --- 4. ANTARAMUKA PENGGUNA (GUI) ---
 st.set_page_config(page_title="Sistem Rancangan Mengajar Versi 3.5", layout="wide")
 
-st.title("🎓 LAMPIRAN RANCANGAN MENGAJAR PTE SENGKURONG")
+st.title("🎓 PTES LAMPIRAN RANCANGAN MENGAJAR")
 st.info("Sila masukkan topik pelajaran, kod sukatan pelajaran subjek dan maklumat tambahan seperti Canva, YouTube atau infografik.")
 
 c1, c2 = st.columns(2)
