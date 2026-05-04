@@ -53,7 +53,9 @@ def generate_advanced_plan_bm(topic, syllabus, extra_context):
     [4 mata mengenai penggunaan teknologi beretika/Chromebooks/Canva/YouTube]
 
     SECTION: AKTIVITI PEMULA (INDUKSI)
-    [Aktiviti 'Hook' dan pelan transisi]
+    - Set Induksi 1 : [Aktiviti 'Hook']
+    - -----------------------------------------------------------------------
+    - Set Induksi 2 : [pelan transisi]
 
     SECTION: STRATEGI PERBEZAAN (HIJAU)
     - HA (Pencapaian Tinggi): [1 aktiviti mencabar]
@@ -89,8 +91,10 @@ def generate_advanced_plan_bm(topic, syllabus, extra_context):
     [Tugasan berdasarkan topik]
 
     SECTION: CADANGAN LANGKAH SETERUSNYA
-    - Aktiviti 'Hook' dan pelan transisi untuk sesi pengajaran hari berikutnya.
-    
+    - Cadangan 1 : [Akiviti 'Hook'] untuk sesi pengajaran hari berikutnya.
+    - ----------------------------------------------------------------
+    - Cadangan 2 : [pelan transisi] untuk sesi pengajaran hari berikutnya.
+     
     """
     try:
         response = model.generate_content(prompt)
