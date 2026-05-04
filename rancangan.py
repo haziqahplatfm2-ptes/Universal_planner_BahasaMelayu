@@ -46,13 +46,13 @@ def generate_advanced_plan_bm(topic, syllabus, extra_context):
     SECTION: KATA KUNCI
     [6 item]
     
-    SECTION: KBAT (HOTS)
+    SECTION: SOALAN TAHAP TINGGI (HOTS)
     [4 domain utama daripada Taksonomi Bloom]
     
     SECTION: KEWARGANEGARAAN DIGITAL
     [4 mata mengenai penggunaan teknologi beretika/Chromebooks/Canva/YouTube]
 
-    SECTION: KANDUNGAN SET INDUKSI
+    SECTION: AKTIVITI PEMULA (INDUKSI)
     [Aktiviti 'Hook' dan pelan transisi]
 
     SECTION: STRATEGI PERBEZAAN (HIJAU)
@@ -82,7 +82,7 @@ def generate_advanced_plan_bm(topic, syllabus, extra_context):
     - -----------------------------------------------------------------------------
     - Tugasan Pelajar: [Butiran langkah demi langkah]
     
-    SECTION: PLENARI (TIKET KELUAR)
+    SECTION: PLENARI (TIKET PENUTUP)
     [Aktiviti penutup 2-3 minit]
 
     SECTION: KERJA RUMAH
@@ -101,12 +101,12 @@ def generate_advanced_plan_bm(topic, syllabus, extra_context):
 # --- 3. LOGIK EKSPORT WORD ---
 def create_word_export_bm(topic, syllabus, text):
     doc = Document()
-    doc.add_heading(f'Rancangan Pengajaran PTES: {topic}', 0)
+    doc.add_heading(f'Rancangan Mengajar : {topic}', 0)
 
     # Admin Header (Jadual Pentadbiran)
     admin_table = doc.add_table(rows=3, cols=4)
     admin_table.style = 'Table Grid'
-    labels = [["Minggu Ke:", "Tarikh:"], ["Saiz Kelas:", "Hari:"], ["Tempat:", "Tempoh:"]]
+    labels = [["Minggu Ke:", "Tarikh:"], ["Jumlah Pelajar:", "Hari:"], ["Kelas:", "Tempoh:"]]
     for r in range(3):
         admin_table.cell(r, 0).text = labels[r][0]
         admin_table.cell(r, 2).text = labels[r][1]
@@ -145,9 +145,9 @@ def create_word_export_bm(topic, syllabus, text):
     return bio
 
 # --- 4. ANTARAMUKA PENGGUNA (GUI) ---
-st.set_page_config(page_title="Perancang Pengajaran Lanjutan", layout="wide")
+st.set_page_config(page_title="Sistem Rancangan Mengajar Versi 3.5", layout="wide")
 
-st.title("🎓 Perancang Pengajaran Universal PTES")
+st.title("🎓 LAMPIRAN RANCANGAN MENGAJAR PTE SENGKURONG")
 st.info("Sila masukkan topik pelajaran, kod sukatan pelajaran subjek dan maklumat tambahan seperti Canva, YouTube atau infografik.")
 
 c1, c2 = st.columns(2)
@@ -155,7 +155,7 @@ with c1: u_topic = st.text_input("Topik Pelajaran:")
 with c2: u_syllabus = st.text_input("Kod Sukatan Pelajaran:")
 u_extra = st.text_area("Konteks Tambahan (Pilihan):")
 
-if st.button("🚀 JANA RANCANGAN PENGAJARAN LENGKAP"):
+if st.button("🚀 JANA LAMPIRAN LENGKAP"):
     if u_topic and u_syllabus:
         with st.spinner("AI sedang menyelaraskan semua kriteria ke dalam rancangan anda..."):
             result = generate_advanced_plan_bm(u_topic, u_syllabus, u_extra)
@@ -168,7 +168,7 @@ if 'adv_plan_out_bm' in st.session_state:
     st.subheader("Pratonton Draf AI")
     st.text_area("Kandungan", st.session_state['adv_plan_out_bm'], height=400)
     doc_file = create_word_export_bm(u_topic, u_syllabus, st.session_state['adv_plan_out_bm'])
-    st.download_button("📥 Muat Turun Versi Word (.docx)", doc_file, f"Rancangan_Pengajaran_{u_topic}.docx")
+    st.download_button("📥 Muat Turun Versi Word (.docx)", doc_file, f"PlanMengajar_{u_topic}.docx")
 
 st.markdown("---")
-st.caption("Perancang Pengajaran 3.0 | Pembangun: Hjh Nurul Haziqah Hj Nordin | © 2026 PTES Innovation")
+st.caption("Sistem Rancangan Mengajar 3.0 | Penyedia: Hjh Nurul Haziqah Hj Nordin | © 2026 PTES Innovation")
